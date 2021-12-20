@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "formatters": {
+    "simple": {
+      "class": "logging.Formatter",
+      "format": "%(asctime)s  %(levelname)s - %(message)s"
+    }
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "simple"
+    }
+  },
+  "loggers": {
+    "": {
+      "level": "INFO",
+      "handlers": [
+        "console"
+      ],
+      "propagate": "False"
+    },
+    "web_tests": {
+      "level": "DEBUG",
+      "propagate": "True"
+    }
+  }
+}

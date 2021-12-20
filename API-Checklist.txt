@@ -1,0 +1,62 @@
+
+- API logic checks:
+
+1. Check that Admin can toggle status from Limited to Admin for another user
+Parameters: accountNr->Admin, msisdn->Limited, isAdmin=true
+
+2. Check that Admin can toggle status from Admin to Limited for another user
+Parameters: accountNr->Admin, msisdn->Admin, isAdmin=false
+
+3. Check that Limited user cannot toggle status from Limited to Admin for another user. Returns errors message
+Parameters: accountNr->Limited, msisdn->Limited, isAdmin=true
+
+4. Check that Limited user cannot toggle status from Admin to Limited for another user. Returns errors message
+Parameters: accountNr->Limited, msisdn->Admin, isAdmin=false
+
+5. Check that Admin user can toggle status from Admin to Limited for self
+Parameters: accountNr->Admin, msisdn->Admin, isAdmin=false
+
+6. Check that Limited user cannot toggle status from Limited to Admin for self. Returns errors message
+Parameters: accountNr->Limited, msisdn->Limited, isAdmin=true
+
+7. Toggle user's status from Limited to Admin. Check that this user can toggle status for another user
+Parameters: accountNr->Admin, msisdn->Admin, isAdmin=false
+
+8. Toggle user's status from Limited to Admin. Check that this user can toggle status from Admin to Limited for self
+Parameters: accountNr->Admin, msisdn->Admin, isAdmin=false
+
+9. Toggle user's status from Admin to Limited. Check that this user cannot toggle status for another user. Returns errors message
+Parameters: accountNr->Limited, msisdn->Limited, isAdmin=true
+
+10. Toggle user's status from Admin to Limited. Check that this user cannot toggle status from Limited to Admin for self. Returns errors message
+Parameters: accountNr->Limited, msisdn->Limited, isAdmin=true
+
+11. Check that user's status doesn't change if toggle status to Admin for Admin user
+Parameters: accountNr->Admin, msisdn->Admin, isAdmin=true
+
+12. Check that user's status doesn't change if toggle status to Limited for Limited user
+Parameters: accountNr->Admin, msisdn->Limited, isAdmin=false
+
+13. Check that Admin user cannot toggle status for the non-existing user. Returns errors message
+Parameters: accountNr->Admin, msisdn->non-existing, isAdmin=true
+
+14. Check that non-existing user cannot toggle status for the existing user. Returns errors message
+Parameters: accountNr->non-existing, msisdn->Limited, isAdmin=true
+
+
+- API common checks:
+
+1. Check that API returns 20x status code for the correct request
+2. Check the response payload. API should return the valid JSON body with correct data
+3. Check the response headers
+4. Check that API returns 20x status code with correct credentials for the authentification
+5. Check that API returns error with incorrect credentials for the authentification
+6. Check that API returns error with no authentification
+7. Check that API returns 20x status code for the HTTP request
+8. Check the API with the HTTPS request
+9. Check that API returns 20x status code for the appropriate method (e.g. PUT)
+10. Check that API returns error for the other methods (GET, POST, DELETE, etc)
+11. Check that API returns error for the invalid body in the request
+12. Check that API returns error for the empty body in the request
+13. Check that API returns error for non-boolean value in the request body (e.g. "isAdmin": "some text")
+14. Check that API returns error for the wrong API endpoint (e.g. /{accountNr}/{msisdn}/incorrect)

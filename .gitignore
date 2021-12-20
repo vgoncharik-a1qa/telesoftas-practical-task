@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyBuilder
+target/
+
+# Environments
+.env
+.venv
+env/
+envs/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+
+# Tests
+.pytest_cache/
+temp/
+selenium-pytest/temp/
