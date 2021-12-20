@@ -49,14 +49,14 @@ Parameters: accountNr->non-existing, msisdn->Limited, isAdmin=true
 1. Check that API returns 20x status code for the correct request
 2. Check the response payload. API should return the valid JSON body with correct data
 3. Check the response headers
-4. Check that API returns 20x status code with correct credentials for the authentification
+4. Check that API returns 20x status code with correct credentials for the authentification (e.g. Basic Auth)
 5. Check that API returns error with incorrect credentials for the authentification
 6. Check that API returns error with no authentification
-7. Check that API returns 20x status code for the HTTP request
-8. Check the API with the HTTPS request
-9. Check that API returns 20x status code for the appropriate method (e.g. PUT)
-10. Check that API returns error for the other methods (GET, POST, DELETE, etc)
-11. Check that API returns error for the invalid body in the request
+7. Check that API returns 20x status code for the HTTPS request
+8. Check that API returns error code for the HTTP request (usually API supports one of the HTTP/HTTPS)
+9. Check that API returns 20x status code for the supported method (e.g. PUT/PATCH)
+10. Check that API returns error for the not supported methods (e.g. GET, POST, DELETE, etc)
+11. Check that API returns error for the invalid body in the request (e.g. "isLimited": true)
 12. Check that API returns error for the empty body in the request
 13. Check that API returns error for non-boolean value in the request body (e.g. "isAdmin": "some text")
 14. Check that API returns error for the wrong API endpoint (e.g. /{accountNr}/{msisdn}/incorrect)

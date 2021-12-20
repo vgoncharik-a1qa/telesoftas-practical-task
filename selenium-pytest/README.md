@@ -1,5 +1,4 @@
-# Web tests for test tasks
-Web Tests for test tasks
+# UI tests for practical task
 
 The framework for automated tests based on the Selenium WebDriver and PyTest.
 The installation of the tools requires Python 3.6
